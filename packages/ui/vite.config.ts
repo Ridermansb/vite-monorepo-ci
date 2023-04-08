@@ -45,6 +45,13 @@ function manualChunks(id: string) {
 export default defineConfig(({ mode, command }) => {
   const plugins = [tsconfigPaths(), react()];
 
+  console.log(
+    'Building UI with mode "%s" and command "%s" on "%s"',
+    mode,
+    command,
+    process.cwd()
+  );
+
   const posthtmlPlugins = loadPosthtmlPlugins(mode, command);
   if (posthtmlPlugins.length > 0) {
     plugins.push(vitePluginPosthtml(posthtmlPlugins));
