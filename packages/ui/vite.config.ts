@@ -21,5 +21,16 @@ export default defineConfig(() => {
 
   return {
     plugins,
+    server: {
+      port: 5174,
+      hmr: {
+        clientPort: 5174,
+        host: "localhost",
+      },
+    },
+    define: {
+      "import.meta.vitest": false,
+      "process.env": {},
+    },
   };
 });
