@@ -3,9 +3,23 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
+    "serve": "wireit",
     "dev": "vite --strictPort",
     "build": "tsc && vite build --mode production",
     "preview": "vite preview"
+  },
+  "wireit": {
+    "serve": {
+      "command": "npm run dev",
+      "service": {
+        "readyWhen": {
+          "lineMatches": "Watching for file changes"
+        }
+      },
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
   },
   "dependencies": {
     "react": "^18.2.0",
