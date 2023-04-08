@@ -34,6 +34,13 @@ function loadPosthtmlPlugins(mode: string, command: string) {
   return [];
 }
 
+function manualChunks(id: string) {
+  if (id.includes("node_modules")) {
+    return "vendor";
+  }
+  return;
+}
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => {
   const plugins = [tsconfigPaths(), react()];
@@ -57,6 +64,13 @@ export default defineConfig(({ mode, command }) => {
 
   return {
     plugins,
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks,
+        },
+      },
+    },
     server: {
       port: 5174,
       hmr: {
