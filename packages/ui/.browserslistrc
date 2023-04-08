@@ -1,0 +1,9 @@
+# Browsers that we support
+
+last 1 version
+
+> 1%
+
+not dead # no browsers without security updates
+
+not op_mini all
